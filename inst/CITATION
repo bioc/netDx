@@ -34,7 +34,7 @@ bibentry(bibtype = "Article",
                person("Jan", "Baumbach"),
                person(c("Gary", "D."), "Bader")
            ),
-           year = 2021,
+           year = 2021 ,
            journal = "F1000Research",
            volume = "9",
            pages = "1239",
