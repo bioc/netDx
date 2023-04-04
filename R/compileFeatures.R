@@ -111,7 +111,10 @@ compileFeatures <- function(netDir, outDir = tempdir(),
       corType <- "MUTUAL_INFORMATION"
     }
 
-    args <- c(sprintf("-Xmx%iG", JavaMemory), "-cp", GM_jar)
+    args <- c(sprintf("-Xmx%iG", JavaMemory), 
+      "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+      "--add-opens", "java.base/java.lang.reflect=ALL-UNNAMED",
+      "-cp", GM_jar)
     args <- c(args,
           paste("org.genemania.engine.core.",
           "evaluation.ProfileToNetworkDriver", sep = ""))
@@ -190,7 +193,10 @@ compileFeatures <- function(netDir, outDir = tempdir(),
   if (verbose)
     message("\t* Build GeneMANIA index")
   setwd(dataDir)
-  args <- c("-Xmx10G", "-cp", GM_jar)
+  args <- c("-Xmx10G", 
+        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+        "--add-opens", "java.base/java.lang.reflect=ALL-UNNAMED",
+        "-cp", GM_jar)
   args <- c(args, paste("org.genemania.mediator.lucene.",
       "exporter.Generic2LuceneExporter", sep = ""))
   args <- c(args, paste(netDir, "db.cfg", sep = getFileSep()), netDir,
@@ -225,7 +231,10 @@ compileFeatures <- function(netDir, outDir = tempdir(),
   if (verbose)
     message("\t* Build GeneMANIA cache")
 
-  args <- c("-Xmx10G", "-cp", GM_jar,
+  args <- c("-Xmx10G", 
+        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+        "--add-opens", "java.base/java.lang.reflect=ALL-UNNAMED",
+         "-cp", GM_jar,
         "org.genemania.engine.apps.CacheBuilder")
   args <- c(args, "-cachedir", "cache", "-indexDir", ".",
         "-networkDir",

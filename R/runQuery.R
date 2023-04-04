@@ -35,7 +35,10 @@ runQuery <- function(dbPath, queryFiles, resDir, verbose = TRUE,
 		args <- c(args,"-d64")
 	}
 
-    args <- c(args, sprintf("-Xmx%iG", JavaMemory * numCores), "-cp", GM_jar)
+    args <- c(args, sprintf("-Xmx%iG", JavaMemory * numCores), 
+		"--add-opens", "java.base/java.lang=ALL-UNNAMED",
+    	"--add-opens", "java.base/java.lang.reflect=ALL-UNNAMED",
+		"-cp", GM_jar)
     args <- c(args, "org.genemania.plugin.apps.QueryRunner")
     args <- c(args, "--data", dbPath, "--in", "flat", "--out", "flat")
     args <- c(args, "--threads", numCores, "--results", resDir, 
