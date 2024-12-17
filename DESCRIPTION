@@ -1,6 +1,6 @@
 Package: netDx
 Title: Network-based patient classifier
-Version: 1.19.0
+Version: 1.19.1
 Authors@R: c(person("Shraddha", "Pai", 
 		email = "shraddha.pai@utoronto.ca", 
 		role = c("aut", "cre"),
@@ -40,3 +40,4 @@ LazyData: false
 URL: http://netdx.org
 biocViews: Classification, BiomedicalInformatics, Network, SystemsBiology
 RoxygenNote: 7.1.2
+PackageStatus: Deprecated
