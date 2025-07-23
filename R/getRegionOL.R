@@ -18,7 +18,7 @@
 #' data(cnv_GR,pathway_GR)
 #' x <- getRegionOL(cnv_GR,pathway_GR)
 #' @export
-#' @importFrom GenomeInfoDb seqlevels seqlevels<-
+#' @importFrom Seqinfo seqlevels seqlevels<-
 #' @importFrom GenomicRanges GRanges
 #' @importFrom S4Vectors queryHits subjectHits
 getRegionOL <- function(gr, rngList) {
